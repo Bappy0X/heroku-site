@@ -1,7 +1,5 @@
 import unittest
-#import pandas as pd
-import web as app
-#from qa.parsedata import convert_to_list
+from web import app
 
 class TestAskMe(unittest.TestCase):
     def setUp(self):
