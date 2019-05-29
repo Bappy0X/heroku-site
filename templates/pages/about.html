@@ -2,11 +2,12 @@
 
 {% block title %}About{% endblock %}
 
+{% block parallax_style %}style="background-image: url('{{ url_for('static', filename='img/src1.jpg') }}')"{% endblock %}
+
+{% block parallax_title %}About{% endblock %}
+
 {% block content %}
-    <div class="parallax" id="top" style="background-image: url('../../static/img/src1.jpg')">
-        <h1 class="title">About</h1>
-    </div>
-    {% for i in range(20) %}
-    <h1>Welcome!</h1>
-    {% endfor %}
+{% for i in range(20) %}
+<h1>Welcome!</h1>
+{% endfor %}
 {% endblock %}

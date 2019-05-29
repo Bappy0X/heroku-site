@@ -8,18 +8,57 @@ code{
     text-decoration: underline red;
 }
 
+/* Parallax Wallpaper, Title and Down Arrow */
 .parallax{
+    color: white;
+    height: 100vh;
+    text-align: center;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.title{
-    color: white;
+.parallax h1, p{
     text-shadow: 0 0 10px #111;
-    font-size: 100px;
-    line-height: 100vh;
+    font-size: 50px;
     margin: 0;
-    text-align: center;
+}
+
+.parallax p{
+    margin: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Navigation Bar */
+.nav-bar{
+    margin: auto;
+    display: table;
+}
+
+.nav-bar ul{
+    margin: 0;
+    list-style: none;
+    display: table-row;
+}
+
+.nav-bar li{
+    display: table-cell;
+    padding: 10px;
+}
+
+.nav-bar a{
+    color: inherit;
+    display: block;
+    border: 2px solid white;
+    border-radius: 25px;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+.nav-bar a:hover{
+    background-color: black;
+    text-decoration: underline;
 }

@@ -1,12 +1,9 @@
 from flask import Flask, render_template, Blueprint
 
-def create_app():
-    app = Flask(__name__)
+app = Flask(__name__)
 
-    from views import main
-    app.register_blueprint(main)
-
-    return(app)
+from views import main
+app.register_blueprint(main)
 
 """errors = Blueprint("errors", __name__)
 
@@ -25,4 +22,4 @@ def internal_server_error(error):
 app.register_blueprint(errors)"""
 
 if __name__ == "__main__":
-    create_app().run(host="0.0.0.0", port=3000, debug=True)
+    app.run(host="0.0.0.0", port=3000, debug=True)

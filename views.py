@@ -6,10 +6,14 @@ main = Blueprint("main", __name__)
 def index():
     return render_template("pages/index.html")
 
-@main.route("/about/")
+@main.route("/about")
 def about():
     return render_template("pages/about.html")
 
-@main.route("/contact/")
+@main.route("/contact")
 def contact():
     return render_template("pages/contact.html")
+
+@main.route("/contact", methods=["POST"])
+def contact_post():
+    pass
