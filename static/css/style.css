@@ -1,6 +1,8 @@
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
+    background-color: #333;
+    color: white;
 }
 
 code{
@@ -10,7 +12,6 @@ code{
 
 /* Parallax Wallpaper, Title and Down Arrow */
 .parallax{
-    color: white;
     height: 100vh;
     text-align: center;
     background-size: cover;
@@ -19,7 +20,7 @@ code{
     background-position: center;
 }
 
-.parallax h1, p{
+.parallax h1, .parallax p{
     text-shadow: 0 0 10px #111;
     font-size: 50px;
     margin: 0;

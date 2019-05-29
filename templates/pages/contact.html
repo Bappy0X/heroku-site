@@ -7,6 +7,13 @@
 {% block parallax_title %}Contact{% endblock %}
 
 {% block content %}
+<form method="POST" action="{{ url_for('main.contact_post') }}">
+    First Name:<input type="text" id="firstname" name="firstname">
+    <input type="submit" value="Send">
+</form>
+{% for i in contacts %}
+<p>{{ i.name }}: {{ i.id }}</p>
+{% endfor %}
 {% for i in range(20) %}
 <h1>Welcome!</h1>
 {% endfor %}
