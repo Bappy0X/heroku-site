@@ -5,6 +5,6 @@
 {% block content %}
     <h1>Error {{ code }}</h1>
     <p>Sorry, something went wrong.</p>
-    <p>Flask error: <code>{{ error }}</code></p>
-    <p>Click <a href="{{ url_for('index') }}">here</a> to go home.</p>
+    <p>Flask error: <code>{{ flask_error }}</code></p>
+    <p>Click <a href="{{ url_for('main.index') }}">here</a> to go home.</p>
 {% endblock %}

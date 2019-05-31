@@ -6,7 +6,24 @@
 
 {% block parallax_title %}Home{% endblock %}
 
+{% block parallax_extra %}
+<h2 style="text-align: left; margin-left: 50px;">TEst</h2>
+{% endblock %}
+
 {% block content %}
+<div id="testimonials" class="box-list">
+    <ul>
+        {% for i in range(3) %}
+        <li>
+            <div class="item">
+                <h2>COMMENT</h2>
+                <p>- NAME</p>
+                <!--{% for i in range(100) %}f{% endfor %}-->
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% for i in range(20) %}
 <h1>Welcome!</h1>
 {% endfor %}

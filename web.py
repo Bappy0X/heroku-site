@@ -1,55 +1,32 @@
-from os import environ
-from flask import Flask, Blueprint, render_template, request, url_for, redirect
+#from os import environ
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3" #environ["DATABASE_URI"]
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
-from models import *
+def create_app():
+    app = Flask(__name__)
 
-# MAIN
-main = Blueprint("main", __name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sql/db.sqlite3" #environ["DATABASE_URI"]
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db.init_app(app)
 
-@main.route("/")
-def index():
-    return render_template("pages/index.html")
+    @app.errorhandler(403)
+    def invalid(error):
+        return render_template("pages/error.html", parallax=False, code=403, flask_error=error), 403
 
-@main.route("/about")
-def about():
-    return render_template("pages/about.html")
+    @app.errorhandler(404)
+    def not_found(error):
+        return render_template("pages/error.html", parallax=False, code=404, flask_error=error), 404
 
-@main.route("/contact")
-def contact():
-    return render_template("pages/contact.html", contacts=comment.query.all())
+    @app.errorhandler(500)
+    def internal_server_error(error):
+        return render_template("pages/error.html", parallax=False, code=500, flask_error=error), 500
 
-@main.route("/contact", methods=["POST"])
-def contact_post():
-    firstname = request.form.get("firstname")
-    new_comment = comment(name=firstname)
-    db.session.add(new_comment)
-    db.session.commit()
-    return redirect(url_for("main.index"))
+    from views import main
+    app.register_blueprint(main)
 
-app.register_blueprint(main)
-
-# ERRORS
-errors = Blueprint("errors", __name__)
-
-@errors.errorhandler(403)
-def not_found(error):
-    return render_template("pages/error.html", code=403, error=error), 403
-
-@errors.errorhandler(404)
-def forbidden(error):
-    return render_template("pages/error.html", code=404, error=error), 404
-
-@errors.errorhandler(500)
-def internal_server_error(error):
-    return render_template("pages/error.html", code=500, error=error), 500
-
-app.register_blueprint(errors)
+    return app
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000, debug=True)
+    create_app().run(host="0.0.0.0", port=3000, debug=True)
