@@ -28,13 +28,13 @@ a:hover{
     background-position: center;
 }
 
-.parallax h1, .parallax p{
+.parallax > h1, .parallax > p{
     text-shadow: 0 0 10px #111;
     font-size: 50px;
     margin: 0;
 }
 
-.parallax p{
+.parallax > p{
     margin: 20px auto;
     position: absolute;
     bottom: 0;
@@ -70,6 +70,25 @@ a:hover{
     background-color: black;
 }
 
+/* Notification Box */
+.notif-box{
+    display: table;
+    text-align: left;
+    margin: 25px auto;
+    border-left: 2px solid white;
+}
+
+.notif-box .inner{
+    display: table;
+    padding-left: 10px;
+    margin: 0 auto;
+}
+
+.notif-box .inner *{
+    margin: 0;
+}
+
+/* Testimonials */
 #testimonials .item{
     display: block;
     margin: 10px;
