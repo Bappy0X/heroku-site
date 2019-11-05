@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from .sql.models import *
+from sql.models import *
 
 main = Blueprint("main", __name__)
 
