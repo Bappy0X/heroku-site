@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from sql.models import *
+#from sql.models import *
 
 main = Blueprint("main", __name__)
 
@@ -15,7 +15,7 @@ def about():
 def contact():
     return render_template("pages/contact.html", parallax=True, contacts=comment.query.all())
 
-@main.route("/contact", methods=["POST"])
+"""@main.route("/contact", methods=["POST"])
 def contact_post():
     name = request.form["name"]
     text = request.form["text"]
@@ -24,4 +24,4 @@ def contact_post():
     new_comment = comment(name, text)
     db.session.add(new_comment)
     db.session.commit()
-    return redirect(url_for("main.index"))
+    return redirect(url_for("main.index"))"""
